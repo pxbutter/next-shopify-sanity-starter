@@ -6,7 +6,7 @@ export default async function send(req, res) {
   } = req
 
   const hasShopify =
-    process.env.SHOPIFY_STORE_ID && process.env.SHOPIFY_API_PASSWORD
+    process.env.SHOPIFY_STORE_DOMAIN && process.env.SHOPIFY_API_PASSWORD
 
   if (!id) {
     return res.status(401).json({ error: 'Product ID required' })
@@ -24,7 +24,7 @@ export default async function send(req, res) {
 
   // Fetch the metafields for this product
   const shopifyProduct = await axios({
-    url: `https://${process.env.SHOPIFY_STORE_ID}.myshopify.com/admin/api/2021-01/products/${id}.json`,
+    url: `https://${process.env.SHOPIFY_STORE_DOMAIN}.myshopify.com/admin/api/2021-01/products/${id}.json`,
     method: 'GET',
     headers: shopifyConfig,
   })

@@ -172,7 +172,7 @@ export default async function send(req, res) {
 
   // Fetch the metafields for this product
   const shopifyProduct = await axios({
-    url: `https://${process.env.SHOPIFY_STORE_ID}.myshopify.com/admin/products/${id}/metafields.json`,
+    url: `https://${process.env.SHOPIFY_STORE_DOMAIN}.myshopify.com/admin/products/${id}/metafields.json`,
     method: 'GET',
     headers: shopifyConfig,
   })
@@ -192,7 +192,7 @@ export default async function send(req, res) {
 
       // update our shopify metafield with the new data before continuing sync with Sanity
       axios({
-        url: `https://${process.env.SHOPIFY_STORE_ID}.myshopify.com/admin/products/${id}/metafields/${previousSync.id}.json`,
+        url: `https://${process.env.SHOPIFY_STORE_DOMAIN}.myshopify.com/admin/products/${id}/metafields/${previousSync.id}.json`,
         method: 'PUT',
         headers: shopifyConfig,
         data: {
@@ -215,7 +215,7 @@ export default async function send(req, res) {
   } else {
     console.log('Metafield not found, create new')
     axios({
-      url: `https://${process.env.SHOPIFY_STORE_ID}.myshopify.com/admin/products/${id}/metafields.json`,
+      url: `https://${process.env.SHOPIFY_STORE_DOMAIN}.myshopify.com/admin/products/${id}/metafields.json`,
       method: 'POST',
       headers: shopifyConfig,
       data: {

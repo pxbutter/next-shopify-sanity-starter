@@ -39,7 +39,7 @@ module.exports = withBundleAnalyzer({
     SANITY_API_TOKEN: process.env.SANITY_API_TOKEN,
 
     // Needed for Shopify product syncs
-    SHOPIFY_STORE_ID: process.env.SHOPIFY_STORE_ID,
+    SHOPIFY_STORE_DOMAIN: process.env.SHOPIFY_STORE_DOMAIN,
     SHOPIFY_API_TOKEN: process.env.SHOPIFY_API_TOKEN,
 
     // Needed for Klaviyo forms
